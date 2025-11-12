@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="formulario">
+        <textarea name="mitexto" placeholder="Introduce una frase" cols="30" rows="5"></textarea>
+        <br>
+        <input type="button" value="clickear" onclick="pulsar()"></input>
+    </form>
+    <div id="palabras"></div>
+    <div id="calificaciones"></div>
+    <script>
+        /* Para el div palabras: 
+    - Calcula y muestra el numero de palabras que están escritas en el textarea
+    - Muestra la ultima y la primera palabra del textarea
+    */
+        function pulsar() {
+
+            var text = document.getElementsByName("mitexto")[0].value
+            var pos = text.indexOf(" ", 0)
+            var cont = 0
+            var palabra = ""
+            var indices = []
+            var palabras = []
+            var notas = new Array(4.5, 4, 6, 1, 7.5, 10, 5.25, 4.5, 2, 1, 8, 7.5, 1, 7.5, 8);
+
+            for (let i = 0; i < text.length + 1; i++) {
+
+                if (text[i] != " ") {
+                    palabra += text.substring(i, i + 1)
+                }
+
+                if (text[i] == " " || i == text.length) {
+                    palabras.push(palabra)
+                    palabra = " "
+                }
+
+            }
+
+            var resultado = notas.filter(nota => nota > 5)
+            var infer5 = notas.filter(nota => nota < 5)
+            var infer7 = notas.filter(nota => Number.isInteger(nota) && nota < 7)
+            var infer7Imp = (function () {
+                var array = [];
+                for (let i = 0; i < infer7.length; i++) {
+                    if (infer7[i] % 2 != 0) {
+                        array.push(infer7[i]);
+                    }
+                }
+                return array;
+            })()
+            var infer5Par = (function () {
+                var array = [];
+                for (let i = 0; i < infer5.length; i++) {
+                    if (infer5[i] % 2 == 0) {
+                        array.push(infer5[i]);
+                    }
+                }
+                return array;
+            })()
+
+            var noRep = new Set(notas)
+
+
+            document.getElementById("palabras").innerHTML = "PRIMERA PALABRA: " + palabras[0] + "  ULTIMA PALABRA: " + palabras[palabras.length - 1] + "   HAY " + palabras.length + " PALABRAS"
+            document.getElementById("calificaciones").innerHTML = "Notas: " + notas + "<br> Hay " + resultado.length + " alumnos aprobados <br>  Sin repetir: " + [...noRep].join(",") + "<br> Suspendidos pares: " + infer5Par + " <br> Impares menores 7: " + infer7Imp
+
+            console.log(infer7Imp)
+
+        }
+
+
+        /* Para el div calificaciones: 
+        Dado el siguiente array de notas de clase en la 1ª Evaluación. 
+        
+        - Sacar el numero de alumnos aprobados
+        - Dado este array, sacar por pantalla todas las notas que no están repetidas
+        - Crea una funcion para comprobar las notas que estan por debajo de 5. Llama a esta función para sacar las notas pares de los alumnos que han suspendido
+        - Sacar las notas impares de los alumnos que han sacado al menos un 7
+        - Elimina del array las notas por debajo de 5
+        - Crea una función aleatoria que calcule numeros entre 5 y 10 sin decimales
+        - Llama a esta funcion aleatoria para rellenar el array, respetando las notas que no han sido eliminadas. 
+        - Muestra por pantalla el array con los nuevos elementos ordenandos de mayor a menor.
+        
+        NOTA1: Emplea siempre que se pueda metodos y propiedades del objeto Array
+        NOTA2: Emplea if, for, for-in, for-of, do-while, while... */
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+📝 Enunciado: Sistema de Inscripción a Talleres (Local)
+Objetivo: Crear una aplicación funcional de inscripción que recupere datos de un archivo local, genere la interfaz mediante el DOM y gestione la lógica de usuario.
+
+1. Preparación de Datos (Simulación de API)
+Debes utilizar el archivo talleres.json proporcionado abajo. La aplicación debe realizar una petición fetch a dicho archivo local al cargar la página.
+
+Si la carga es exitosa, procesa los datos para rellenar el selector.
+                    
+                    
+Si falla (archivo no encontrado o error de lectura), muestra un mensaje de error en rojo dentro de div#messages.
+
+2. Construcción Dinámica (Manipulación del DOM)
+Dentro de <main id="app">, genera exclusivamente mediante métodos del DOM (createElement, appendChild, etc.) la siguiente estructura:
+
+Un título <h2> que diga "Inscripción Taller".
+
+Un formulario con:
+
+Un campo de texto para el Nombre.
+
+Un campo de tipo email para el Correo.
+
+Un desplegable (<select>) con los talleres del JSON.
+
+Un botón de envío.
+
+3. Eventos y Validación
+Evento 'change': Al cambiar el taller en el select, muestra en div#messages la descripción del taller seleccionado (campo descripcion del JSON).
+
+Validación 'input': El campo email debe tener borde verde si contiene una @ y un punto ., y rojo si no cumple ambos requisitos.
+
+Envío 'submit': 
+1. Evita el refresco de página.
+2. Valida que el nombre no esté vacío.
+3. Muestra un mensaje de "Inscripción enviada con éxito" en el contenedor de mensajes.
+
+Sugerencia para empezar el script.js:
+Para manejar la asincronía y el DOM de forma limpia, te recomiendo seguir este orden:
+
+Declara una función init() que se ejecute al cargar el DOM.
+
+Dentro de init(), llama a una función cargarDatos() que haga el fetch.
+
+Usa los datos del fetch para llamar a renderizarFormulario(datos).

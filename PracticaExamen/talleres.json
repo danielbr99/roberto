@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "nombre": "Desarrollo con React",
+        "descripcion": "Aprende el framework más popular de JS."
+    },
+    {
+        "id": 2,
+        "nombre": "Diseño UI/UX",
+        "descripcion": "Principios de diseño para interfaces modernas."
+    },
+    {
+        "id": 3,
+        "nombre": "Node.js Backend",
+        "descripcion": "Crea servidores escalables con JavaScript."
+    },
+    {
+        "id": 4,
+        "nombre": "Seguridad Web",
+        "descripcion": "Protege tus aplicaciones de ataques comunes."
+    }
+]

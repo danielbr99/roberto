@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <p id="introduccion" style="color: blue">Parrafo de prueba</p>
+ <p id="introduccion" style="color: red">Parrafo 2</p>
+</body>
+<script type="text/javascript">
+    let obj = document.documentElement
+    let objHead = obj.firstChild
+    console.log(obj == objHead.parentNode);
+</script>
+</html>

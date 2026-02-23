@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla con Botón de Editar</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .btn-edit {
+            background-color: #4CAF50;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-edit:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+
+    <h2>Lista de Usuarios</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Correo Electrónico</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Ana García</td>
+                <td>ana@ejemplo.com</td>
+                <td><button class="btn-edit">Editar</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Luis Pérez</td>
+                <td>luis@ejemplo.com</td>
+                <td><button class="btn-edit">Editar</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>María López</td>
+                <td>maria@ejemplo.com</td>
+                <td><button class="btn-edit">Editar</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
